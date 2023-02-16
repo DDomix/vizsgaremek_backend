@@ -18,5 +18,5 @@ export class Pilotak {
   csapat: string;
 
   @Column()
-  futamgyozelem: number;
+  szerzettpontok: number;
 }

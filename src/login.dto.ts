@@ -10,7 +10,7 @@ export default class loginDto {
   @IsNotEmpty()
   @IsString()
   @IsDefined({ message: 'A felhasználónév megadása kötelező' })
-  usernames: string;
+  username: string;
   @IsString()
   @MinLength(8)
   @IsNotEmpty()
