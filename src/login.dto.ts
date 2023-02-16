@@ -1,6 +1,5 @@
 import {
   IsDefined,
-  IsEmail,
   IsNotEmpty,
   IsString,
   IsStrongPassword,

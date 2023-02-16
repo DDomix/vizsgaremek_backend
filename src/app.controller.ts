@@ -10,9 +10,11 @@ import {
 } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import { AppService } from './app.service';
+import { Kaszni } from './kaszni.entity';
 import { Motor } from './motor.entity';
 import registerDto from './register.dto';
 import { Register } from './user.entity';
+import { Vezerloegyseg } from './vezerloegyseg.entity';
 
 @Controller()
 export class AppController {
@@ -31,10 +33,23 @@ export class AppController {
   }
 
   @Get('api/motor')
-  async listCsavar() {
+  async listMotor() {
     const repo = this.dataSource.getRepository(Motor);
     return await repo.find();
   }
+
+  @Get('api/kaszni')
+  async listKaszni() {
+    const repo = this.dataSource.getRepository(Kaszni);
+    return await repo.find();
+  }
+
+  @Get('api/vezerloegyseg')
+  async listVezerloegyseg() {
+    const repo = this.dataSource.getRepository(Vezerloegyseg);
+    return await repo.find();
+  }
+
   @Get('/api/users')
   listCourses() {
     const usersRepo = this.dataSource.getRepository(Register);
