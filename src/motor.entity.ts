@@ -6,13 +6,13 @@ export class Motor {
   id: number;
 
   @Column()
+  leiras: string;
+
+  @Column()
   motorkomponensek: string;
 
   @Column()
   darabszam: number;
-
-  @Column()
-  leiras: string;
 
   @Column()
   ar: number;

@@ -6,13 +6,13 @@ export class Vezerloegyseg {
   id: number;
 
   @Column()
+  leiras: string;
+
+  @Column()
   vezerloegysegkomponensek: string;
 
   @Column()
   darabszam: number;
-
-  @Column()
-  leiras: string;
 
   @Column()
   ar: number;

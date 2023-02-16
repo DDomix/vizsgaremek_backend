@@ -1,19 +1,22 @@
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
 @Entity()
-export class Kaszni {
+export class Pilotak {
   @PrimaryColumn()
   id: number;
 
   @Column()
-  leiras: string;
+  nev: string;
 
   @Column()
-  kasznikomponensek: string;
+  kor: number;
 
   @Column()
-  darabszam: number;
+  nemzetiseg: string;
 
   @Column()
-  ar: number;
+  csapat: string;
+
+  @Column()
+  futamgyozelem: number;
 }

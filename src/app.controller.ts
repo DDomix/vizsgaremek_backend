@@ -10,6 +10,7 @@ import {
 } from '@nestjs/common';
 import { DataSource } from 'typeorm';
 import { AppService } from './app.service';
+import { Pilotak } from './drivers.entity';
 import { Kaszni } from './kaszni.entity';
 import { Motor } from './motor.entity';
 import registerDto from './register.dto';
@@ -47,6 +48,12 @@ export class AppController {
   @Get('api/vezerloegyseg')
   async listVezerloegyseg() {
     const repo = this.dataSource.getRepository(Vezerloegyseg);
+    return await repo.find();
+  }
+
+  @Get('api/pilotak')
+  async listPilotak() {
+    const repo = this.dataSource.getRepository(Pilotak);
     return await repo.find();
   }
 
