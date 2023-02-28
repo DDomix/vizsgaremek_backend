@@ -11,7 +11,7 @@ export default class registerDto {
   @IsNotEmpty()
   @IsString()
   @IsDefined({ message: 'A felhasználónév megadása kötelező' })
-  usernames: string;
+  username: string;
   @IsDefined()
   @IsEmail()
   email: string;

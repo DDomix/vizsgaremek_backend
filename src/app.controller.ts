@@ -58,7 +58,7 @@ export class AppController {
   }
 
   @Get('/api/users')
-  listCourses() {
+  listRegister() {
     const usersRepo = this.dataSource.getRepository(Register);
     return usersRepo.find();
   }
@@ -70,7 +70,7 @@ export class AppController {
     }
     const user = new Register();
     user.email = userData.email;
-    user.password = /*bcyrpt titkositas*/ ' ';
+    user.password = userData.password;
     user.username = userData.usernames;
     const userRepo = this.dataSource.getRepository(Register);
     userRepo.save(user);
