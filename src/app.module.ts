@@ -6,7 +6,7 @@ import { Pilotak } from './drivers.entity';
 import { Kaszni } from './kaszni.entity';
 import { Login } from './login.entity';
 import { Motor } from './motor.entity';
-import { Register } from './user.entity';
+import { Register } from './register.entity';
 import { Vezerloegyseg } from './vezerloegyseg.entity';
 
 @Module({

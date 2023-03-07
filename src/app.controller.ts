@@ -1,4 +1,4 @@
-import { BadRequestException } from '@nestjs/common';
+import { BadRequestException, UseGuards } from '@nestjs/common';
 import {
   Body,
   Controller,
@@ -7,15 +7,18 @@ import {
   Param,
   Post,
   Render,
+  Request,
 } from '@nestjs/common';
 import { DataSource } from 'typeorm';
+import { AuthGuard } from '@nestjs/passport/dist';
 import { AppService } from './app.service';
 import { Pilotak } from './drivers.entity';
 import { Kaszni } from './kaszni.entity';
 import { Motor } from './motor.entity';
 import registerDto from './register.dto';
-import { Register } from './user.entity';
+import { Register } from './register.entity';
 import { Vezerloegyseg } from './vezerloegyseg.entity';
+import Login from './login.entity';
 
 @Controller()
 export class AppController {
@@ -31,6 +34,15 @@ export class AppController {
   @Render('index')
   index() {
     return { message: 'Welcome to the homepage' };
+  }
+
+  @Get('profile')
+  @UseGuards(AuthGuard('bearer'))
+  ownProfile(@Request() req) {
+    const user: Login = req.user;
+    return {
+      username: user.username,
+    };
   }
 
   @Get('api/motor')
@@ -61,19 +73,6 @@ export class AppController {
   listRegister() {
     const usersRepo = this.dataSource.getRepository(Register);
     return usersRepo.find();
-  }
-
-  @Post('/api/users')
-  newCourse(@Body() userData: registerDto) {
-    if (userData.password !== userData.passwordagain) {
-      throw new BadRequestException('Passwords must match');
-    }
-    const user = new Register();
-    user.email = userData.email;
-    user.password = userData.password;
-    user.username = userData.usernames;
-    const userRepo = this.dataSource.getRepository(Register);
-    userRepo.save(user);
   }
 
   @Delete('/api/users/:id')
