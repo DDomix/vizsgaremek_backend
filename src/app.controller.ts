@@ -18,7 +18,8 @@ import { Motor } from './motor.entity';
 import registerDto from './register.dto';
 import { Register } from './register.entity';
 import { Vezerloegyseg } from './vezerloegyseg.entity';
-import Login from './login.entity';
+import { Login } from './login.entity';
+import * as bcrypt from 'bcrypt';
 
 @Controller()
 export class AppController {
@@ -73,6 +74,19 @@ export class AppController {
   listRegister() {
     const usersRepo = this.dataSource.getRepository(Register);
     return usersRepo.find();
+  }
+  
+  @Post('/api/users')
+  async newCourse(@Body() userData: registerDto) {
+    if (userData.password !== userData.passwordagain) {
+      throw new BadRequestException('Passwords must match');
+    }
+    const user = new Register();
+    user.email = userData.email;
+    user.password = await bcrypt.hash(userData.password, 12);
+    user.username = userData.username;
+    const userRepo = this.dataSource.getRepository(Register);
+    await userRepo.save(user);
   }
 
   @Delete('/api/users/:id')

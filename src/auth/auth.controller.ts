@@ -5,7 +5,7 @@ import {
   Post,
   UnauthorizedException,
 } from '@nestjs/common';
-import Login from 'src/login.entity';
+import { Login } from 'src/login.entity';
 import { DataSource } from 'typeorm';
 import LoginDto from './login.dto';
 import * as bcrypt from 'bcrypt';
@@ -39,16 +39,4 @@ export class AuthController {
 
   // logout: törli a token-t
   // register: új user létrehozása
-  @Post('/api/users')
-  newCourse(@Body() userData: registerDto) {
-    if (userData.password !== userData.passwordagain) {
-      throw new BadRequestException('Passwords must match');
-    }
-    const user = new Register();
-    user.email = userData.email;
-    user.password = bcrypt.hash(userData.password);
-    user.username = userData.username;
-    const userRepo = this.dataSource.getRepository(Register);
-    userRepo.save(user);
-  }
 }

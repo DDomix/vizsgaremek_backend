@@ -1,4 +1,4 @@
-import Login from 'src/login.entity';
+import { Login } from 'src/login.entity';
 import { Entity, ManyToOne, PrimaryColumn } from 'typeorm';
 
 @Entity()
