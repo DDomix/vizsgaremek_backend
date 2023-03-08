@@ -75,7 +75,7 @@ export class AppController {
     const usersRepo = this.dataSource.getRepository(Register);
     return usersRepo.find();
   }
-  
+
   @Post('/api/users')
   async newCourse(@Body() userData: registerDto) {
     if (userData.password !== userData.passwordagain) {
@@ -86,7 +86,11 @@ export class AppController {
     user.password = await bcrypt.hash(userData.password, 12);
     user.username = userData.username;
     const userRepo = this.dataSource.getRepository(Register);
-    await userRepo.save(user);
+    if (await userRepo.findOneBy({ username: userData.username })) {
+      throw new BadRequestException('Ilyen már van');
+    } else {
+      await userRepo.save(user);
+    }
   }
 
   @Delete('/api/users/:id')
