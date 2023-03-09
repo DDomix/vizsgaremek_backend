@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { Login } from 'src/login.entity';
 import * as crypto from 'crypto';
 import Token from './token.entity';
 import { DataSource } from 'typeorm';
+import { User } from 'src/user.entity';
 
 @Injectable()
 export class AuthService {
@@ -20,7 +20,7 @@ export class AuthService {
     return tokenObj.user;
   }
 
-  async generateTokenFor(user: Login) {
+  async generateTokenFor(user: User) {
     // Véletlen string generálása
     const veletlen = crypto.randomBytes(32);
     const tokenString = veletlen.toString('hex');
@@ -31,5 +31,9 @@ export class AuthService {
     await this.dataSource.getRepository(Token).insert(token);
 
     return tokenString;
+  }
+  async deleteTokenFor(token: string) {
+    const tokenRepo = this.dataSource.getRepository(Token);
+    await tokenRepo.delete({ token });
   }
 }

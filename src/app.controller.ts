@@ -10,16 +10,12 @@ import {
   Request,
 } from '@nestjs/common';
 import { DataSource } from 'typeorm';
-import { AuthGuard } from '@nestjs/passport/dist';
 import { AppService } from './app.service';
 import { Pilotak } from './drivers.entity';
 import { Kaszni } from './kaszni.entity';
 import { Motor } from './motor.entity';
-import registerDto from './register.dto';
-import { Register } from './register.entity';
+import { User } from './user.entity';
 import { Vezerloegyseg } from './vezerloegyseg.entity';
-import { Login } from './login.entity';
-import * as bcrypt from 'bcrypt';
 
 @Controller()
 export class AppController {
@@ -35,15 +31,6 @@ export class AppController {
   @Render('index')
   index() {
     return { message: 'Welcome to the homepage' };
-  }
-
-  @Get('profile')
-  @UseGuards(AuthGuard('bearer'))
-  ownProfile(@Request() req) {
-    const user: Login = req.user;
-    return {
-      username: user.username,
-    };
   }
 
   @Get('api/motor')
@@ -72,30 +59,13 @@ export class AppController {
 
   @Get('/api/users')
   listRegister() {
-    const usersRepo = this.dataSource.getRepository(Register);
+    const usersRepo = this.dataSource.getRepository(User);
     return usersRepo.find();
-  }
-
-  @Post('/api/users')
-  async newCourse(@Body() userData: registerDto) {
-    if (userData.password !== userData.passwordagain) {
-      throw new BadRequestException('Passwords must match');
-    }
-    const user = new Register();
-    user.email = userData.email;
-    user.password = await bcrypt.hash(userData.password, 12);
-    user.username = userData.username;
-    const userRepo = this.dataSource.getRepository(Register);
-    if (await userRepo.findOneBy({ username: userData.username })) {
-      throw new BadRequestException('Ilyen már van');
-    } else {
-      await userRepo.save(user);
-    }
   }
 
   @Delete('/api/users/:id')
   deleteCourse(@Param('id') id: number) {
-    const userRepo = this.dataSource.getRepository(Register);
+    const userRepo = this.dataSource.getRepository(User);
     userRepo.delete(id);
   }
 }
