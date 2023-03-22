@@ -11,6 +11,7 @@ import { User } from './user.entity';
 import { Motor } from './motor.entity';
 import { Vezerloegyseg } from './vezerloegyseg.entity';
 import { AuthModule } from './auth/auth.module';
+import { Shop } from './shop.entity';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { AuthModule } from './auth/auth.module';
       username: 'root',
       password: '',
       database: 'f1',
-      entities: [Motor, User, Kaszni, Vezerloegyseg, Pilotak, Token],
+      entities: [Motor, User, Kaszni, Vezerloegyseg, Pilotak, Token, Shop],
       synchronize: true,
     }),
     AuthModule,

@@ -9,11 +9,12 @@ import {
   Render,
   Request,
 } from '@nestjs/common';
-import { DataSource } from 'typeorm';
+import { DataSource, Like } from 'typeorm';
 import { AppService } from './app.service';
 import { Pilotak } from './drivers.entity';
 import { Kaszni } from './kaszni.entity';
 import { Motor } from './motor.entity';
+import { Shop } from './shop.entity';
 import { User } from './user.entity';
 import { Vezerloegyseg } from './vezerloegyseg.entity';
 
@@ -61,6 +62,16 @@ export class AppController {
   listRegister() {
     const usersRepo = this.dataSource.getRepository(User);
     return usersRepo.find();
+  }
+
+ 
+  @Get('api/shop')
+  async filter(@Body() userData: Shop){
+    const shoprepo = this.dataSource.getRepository(Shop);
+    const filtering = await shoprepo.find({
+      where: [{ team: userData.team }, { size: userData.size }, { color: userData.color }, { name: Like(`%${userData.name}%`) }],
+    });
+    return filtering;
   }
 
   @Delete('/api/users/:id')
