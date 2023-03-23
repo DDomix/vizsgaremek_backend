@@ -65,11 +65,11 @@ export class AppController {
   }
 
  
-  @Get('api/shop')
+  @Post('api/shop')
   async filter(@Body() userData: Shop){
     const shoprepo = this.dataSource.getRepository(Shop);
     const filtering = await shoprepo.find({
-      where: [{ team: userData.team }, { size: userData.size }, { color: userData.color }, { name: Like(`%${userData.name}%`) }],
+      where: { team: userData.team, size: userData.size, color: userData.color, name: Like(`%${userData.name}%`) },
     });
     return filtering;
   }
