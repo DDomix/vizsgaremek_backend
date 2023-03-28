@@ -1,25 +1,25 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Shop {
-    @PrimaryGeneratedColumn()
-    id:number;
-    
-    @Column()
-    name:string;
-    
-    @Column()
-    team:string;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    size:string;
-    
-    @Column()
-    color: string;
+  @Column()
+  type: string;
 
-    @Column()
-    price: number;
+  @Column()
+  team: string;
 
-    @Column()
-    quantity: number;
+  @Column()
+  size: string;
+
+  @Column()
+  color: string;
+
+  @Column()
+  price: number;
+
+  @Column()
+  quantity: number;
 }
