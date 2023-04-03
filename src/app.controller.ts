@@ -58,10 +58,12 @@ export class AppController {
     return await repo.find();
   }
 
-  @Get('/api/users')
-  listRegister() {
-    const usersRepo = this.dataSource.getRepository(User);
-    return usersRepo.find();
+  @Get('/api/shop/:id')
+  async listShop(@Param() userData: Shop) {
+    const usersRepo = this.dataSource.getRepository(Shop);
+    return await usersRepo.findOne({where: {
+      id: userData.id,
+    },});
   }
 
   @Post('api/shop')
@@ -76,6 +78,22 @@ export class AppController {
       },
     });
     return filtering;
+  }
+
+  @Get('api/shop/chechout')
+  async checkoutlist() {
+    const repo = this.dataSource.getRepository(Shop);
+    return await repo.find();
+  }
+  
+  @Get('/api/shop/checkout/:id')
+  async checkout(@Param() ID: number) {
+    const shopRepo = this.dataSource.getRepository(Shop);
+    const one = await shopRepo.findOne({where: {
+      id: ID
+    },});
+    one.quantity-1;
+    return one;
   }
 
   @Delete('/api/users/:id')
