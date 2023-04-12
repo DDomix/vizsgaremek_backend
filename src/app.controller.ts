@@ -85,14 +85,16 @@ export class AppController {
     const repo = this.dataSource.getRepository(Shop);
     return await repo.find();
   }
-  
+
   @Get('/api/shop/checkout/:id')
   async checkout(@Param() ID: number) {
     const shopRepo = this.dataSource.getRepository(Shop);
-    const one = await shopRepo.findOne({where: {
-      id: ID
-    },});
-    one.quantity-1;
+    const one = await shopRepo.findOne({
+      where: {
+        id: ID,
+      },
+    });
+    one.quantity - 1;
     return one;
   }
 

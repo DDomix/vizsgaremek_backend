@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Ápr 11. 20:22
--- Kiszolgáló verziója: 10.4.18-MariaDB
--- PHP verzió: 7.3.27
+-- Létrehozás ideje: 2023. Ápr 12. 13:01
+-- Kiszolgáló verziója: 10.4.24-MariaDB
+-- PHP verzió: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Adatbázis: `driver`
+-- Adatbázis: `f1`
 --
 
 -- --------------------------------------------------------
@@ -62,16 +62,11 @@ INSERT INTO `shop` (`id`, `type`, `team`, `size`, `color`, `price`, `quantity`) 
 (18, 'T-shirt', 'Ferrari', 'M', 'Piros', 22000, 20),
 (19, 'T-shirt', 'Ferrari', 'L', 'Piros', 25000, 20),
 (20, 'T-shirt', 'Ferrari', 'XL', 'Piros', 28000, 20),
-(21, 'T-shirt', 'Ferrari', 'XS', 'Fekete', 20000, 20),
-(22, 'T-shirt', 'Ferrari', 'S', 'Fekete', 20000, 20),
-(23, 'T-shirt', 'Ferrari', 'M', 'Fekete', 22000, 20),
-(24, 'T-shirt', 'Ferrari', 'L', 'Fekete', 25000, 20),
-(25, 'T-shirt', 'Ferrari', 'XL', 'Fekete', 28000, 20),
-(26, 'T-shirt', 'Ferrari', 'XS', 'Fehér', 20000, 20),
-(27, 'T-shirt', 'Ferrari', 'S', 'Fehér', 20000, 20),
-(28, 'T-shirt', 'Ferrari', 'M', 'Fehér', 22000, 20),
-(29, 'T-shirt', 'Ferrari', 'L', 'Fehér', 25000, 20),
-(30, 'T-shirt', 'Ferrari', 'XL', 'Fehér', 28000, 20),
+(21, 'T-shirt', 'Ferrari', 'XS', 'Sárga', 20000, 20),
+(22, 'T-shirt', 'Ferrari', 'S', 'Sárga', 20000, 20),
+(23, 'T-shirt', 'Ferrari', 'M', 'Sárga', 22000, 20),
+(24, 'T-shirt', 'Ferrari', 'L', 'Sárga', 25000, 20),
+(25, 'T-shirt', 'Ferrari', 'XL', 'Sárga', 28000, 20),
 (31, 'T-shirt', 'Mercedes', 'XS', 'Fehér', 20000, 20),
 (32, 'T-shirt', 'Mercedes', 'S', 'Fehér', 20000, 20),
 (33, 'T-shirt', 'Mercedes', 'M', 'Fehér', 22000, 20),
