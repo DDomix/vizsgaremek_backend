@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Ápr 12. 13:01
+-- Létrehozás ideje: 2023. Ápr 12. 14:23
 -- Kiszolgáló verziója: 10.4.24-MariaDB
 -- PHP verzió: 8.1.6
 
@@ -236,7 +236,92 @@ INSERT INTO `shop` (`id`, `type`, `team`, `size`, `color`, `price`, `quantity`) 
 (202, 'Cap', 'Haas', 'S', 'Fehér', 17000, 20),
 (203, 'Cap', 'Haas', 'M', 'Fehér', 17000, 20),
 (204, 'Cap', 'Haas', 'L', 'Fehér', 17000, 20),
-(205, 'Cap', 'Haas', 'XL', 'Fehér', 17000, 20);
+(205, 'Cap', 'Haas', 'XL', 'Fehér', 17000, 20),
+(206, 'Hoodie', 'Red-Bull', 'XS', 'Kék', 30000, 20),
+(207, 'Hoodie', 'Red-Bull', 'S', 'Kék', 32000, 20),
+(208, 'Hoodie', 'Red-Bull', 'M', 'Kék', 34000, 20),
+(209, 'Hoodie', 'Red-Bull', 'L', 'Kék', 36000, 20),
+(210, 'Hoodie', 'Red-Bull', 'XL', 'Kék', 38000, 20),
+(211, 'Hoodie', 'Red-Bull', 'XS', 'Fehér', 30000, 20),
+(212, 'Hoodie', 'Red-Bull', 'S', 'Fehér', 32000, 20),
+(213, 'Hoodie', 'Red-Bull', 'M', 'Fehér', 34000, 20),
+(214, 'Hoodie', 'Red-Bull', 'L', 'Fehér', 36000, 20),
+(215, 'Hoodie', 'Red-Bull', 'XL', 'Fehér', 38000, 20),
+(216, 'Hoodie', 'Red-Bull', 'XS', 'Narancs', 30000, 20),
+(217, 'Hoodie', 'Red-Bull', 'S', 'Narancs', 32000, 20),
+(218, 'Hoodie', 'Red-Bull', 'M', 'Narancs', 34000, 20),
+(219, 'Hoodie', 'Red-Bull', 'L', 'Narancs', 36000, 20),
+(220, 'Hoodie', 'Red-Bull', 'XL', 'Narancs', 38000, 20),
+(221, 'Hoodie', 'Ferrari', 'XS', 'Piros', 30000, 20),
+(222, 'Hoodie', 'Ferrari', 'S', 'Piros', 32000, 20),
+(223, 'Hoodie', 'Ferrari', 'M', 'Piros', 34000, 20),
+(224, 'Hoodie', 'Ferrari', 'L', 'Piros', 36000, 20),
+(225, 'Hoodie', 'Ferrari', 'XL', 'Piros', 38000, 20),
+(226, 'Hoodie', 'Ferrari', 'XS', 'Sárga', 30000, 20),
+(227, 'Hoodie', 'Ferrari', 'S', 'Sárga', 32000, 20),
+(228, 'Hoodie', 'Ferrari', 'M', 'Sárga', 34000, 20),
+(229, 'Hoodie', 'Ferrari', 'L', 'Sárga', 36000, 20),
+(230, 'Hoodie', 'Ferrari', 'XL', 'Sárga', 38000, 20),
+(231, 'Hoodie', 'Mercedes', 'XS', 'Fehér', 30000, 20),
+(232, 'Hoodie', 'Mercedes', 'S', 'Fehér', 32000, 20),
+(233, 'Hoodie', 'Mercedes', 'M', 'Fehér', 34000, 20),
+(234, 'Hoodie', 'Mercedes', 'L', 'Fehér', 36000, 20),
+(235, 'Hoodie', 'Mercedes', 'XL', 'Fehér', 38000, 20),
+(236, 'Hoodie', 'Mercedes', 'XS', 'Fekete', 30000, 20),
+(237, 'Hoodie', 'Mercedes', 'S', 'Fekete', 32000, 20),
+(238, 'Hoodie', 'Mercedes', 'M', 'Fekete', 34000, 20),
+(239, 'Hoodie', 'Mercedes', 'L', 'Fekete', 36000, 20),
+(240, 'Hoodie', 'Mercedes', 'XL', 'Fekete', 38000, 20),
+(241, 'Hoodie', 'Mclaren', 'XS', 'Narancs', 30000, 20),
+(242, 'Hoodie', 'Mclaren', 'S', 'Narancs', 32000, 20),
+(243, 'Hoodie', 'Mclaren', 'M', 'Narancs', 34000, 20),
+(244, 'Hoodie', 'Mclaren', 'L', 'Narancs', 36000, 20),
+(245, 'Hoodie', 'Mclaren', 'XL', 'Narancs', 38000, 20),
+(246, 'Hoodie', 'Aston-Martin', 'XS', 'Zöld', 30000, 20),
+(247, 'Hoodie', 'Aston-Martin', 'S', 'Zöld', 32000, 20),
+(248, 'Hoodie', 'Aston-Martin', 'M', 'Zöld', 34000, 20),
+(249, 'Hoodie', 'Aston-Martin', 'L', 'Zöld', 36000, 20),
+(250, 'Hoodie', 'Aston-Martin', 'XL', 'Zöld', 38000, 20),
+(251, 'Hoodie', 'Alfa-Romeo', 'XS', 'Fekete', 30000, 20),
+(252, 'Hoodie', 'Alfa-Romeo', 'S', 'Fekete', 32000, 20),
+(253, 'Hoodie', 'Alfa-Romeo', 'M', 'Fekete', 34000, 20),
+(254, 'Hoodie', 'Alfa-Romeo', 'L', 'Fekete', 36000, 20),
+(255, 'Hoodie', 'Alfa-Romeo', 'XL', 'Fekete', 38000, 20),
+(256, 'Hoodie', 'Alpine', 'XS', 'Fekete', 30000, 20),
+(257, 'Hoodie', 'Alpine', 'S', 'Fekete', 32000, 20),
+(258, 'Hoodie', 'Alpine', 'M', 'Fekete', 34000, 20),
+(259, 'Hoodie', 'Alpine', 'L', 'Fekete', 36000, 20),
+(260, 'Hoodie', 'Alpine', 'XL', 'Fekete', 38000, 20),
+(261, 'Hoodie', 'Alpine', 'XS', 'Kék', 30000, 20),
+(262, 'Hoodie', 'Alpine', 'S', 'Kék', 32000, 20),
+(263, 'Hoodie', 'Alpine', 'M', 'Kék', 34000, 20),
+(264, 'Hoodie', 'Alpine', 'L', 'Kék', 36000, 20),
+(265, 'Hoodie', 'Alpine', 'XL', 'Kék', 38000, 20),
+(266, 'Hoodie', 'Alpha-Tauri', 'XS', 'Fekete', 30000, 20),
+(267, 'Hoodie', 'Alpha-Tauri', 'S', 'Fekete', 32000, 20),
+(268, 'Hoodie', 'Alpha-Tauri', 'M', 'Fekete', 34000, 20),
+(269, 'Hoodie', 'Alpha-Tauri', 'L', 'Fekete', 36000, 20),
+(270, 'Hoodie', 'Alpha-Tauri', 'XL', 'Fekete', 38000, 20),
+(271, 'Hoodie', 'Williams', 'XS', 'Fekete', 30000, 20),
+(272, 'Hoodie', 'Williams', 'S', 'Fekete', 32000, 20),
+(273, 'Hoodie', 'Williams', 'M', 'Fekete', 34000, 20),
+(274, 'Hoodie', 'Williams', 'L', 'Fekete', 36000, 20),
+(275, 'Hoodie', 'Williams', 'XL', 'Fekete', 38000, 20),
+(276, 'Hoodie', 'Williams', 'XS', 'Kék', 30000, 20),
+(277, 'Hoodie', 'Williams', 'S', 'Kék', 32000, 20),
+(278, 'Hoodie', 'Williams', 'M', 'Kék', 34000, 20),
+(279, 'Hoodie', 'Williams', 'L', 'Kék', 36000, 20),
+(280, 'Hoodie', 'Williams', 'XL', 'Kék', 38000, 20),
+(281, 'Hoodie', 'Haas', 'XS', 'Fekete', 30000, 20),
+(282, 'Hoodie', 'Haas', 'S', 'Fekete', 32000, 20),
+(283, 'Hoodie', 'Haas', 'M', 'Fekete', 34000, 20),
+(284, 'Hoodie', 'Haas', 'L', 'Fekete', 36000, 20),
+(285, 'Hoodie', 'Haas', 'XL', 'Fekete', 38000, 20),
+(286, 'Hoodie', 'Haas', 'XS', 'Fehér', 30000, 20),
+(287, 'Hoodie', 'Haas', 'S', 'Fehér', 32000, 20),
+(288, 'Hoodie', 'Haas', 'M', 'Fehér', 34000, 20),
+(289, 'Hoodie', 'Haas', 'L', 'Fehér', 36000, 20),
+(290, 'Hoodie', 'Haas', 'XL', 'Fehér', 38000, 20);
 
 --
 -- Indexek a kiírt táblákhoz
@@ -256,7 +341,7 @@ ALTER TABLE `shop`
 -- AUTO_INCREMENT a táblához `shop`
 --
 ALTER TABLE `shop`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=291;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
