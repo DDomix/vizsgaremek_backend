@@ -19,4 +19,10 @@ export class Pilotak {
 
   @Column()
   szerzettpontok: number;
+
+  @Column()
+  kategoria: string;
+
+  @Column()
+  helyezes: number;
 }

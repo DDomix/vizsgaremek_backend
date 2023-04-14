@@ -20,4 +20,12 @@ export default class driversDto {
   @IsInt()
   @IsNotEmpty()
   szerzettpontok: number;
+
+  @IsString()
+  @IsNotEmpty()
+  kategoria: string;
+
+  @IsInt()
+  @IsNotEmpty()
+  helyezes: number;
 }
