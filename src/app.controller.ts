@@ -103,4 +103,16 @@ export class AppController {
     const userRepo = this.dataSource.getRepository(User);
     userRepo.delete(id);
   }
+
+  @Post('api/engine')
+  async enginefilter(@Body() engineData: Motor) {
+    const engineRepo = this.dataSource.getRepository(Motor);
+    const filtering = await engineRepo.find({
+      where: {
+        motorkomponens: Like(`%${engineData.motorkomponens}%`),
+        price: engineData.price,
+      },
+    });
+    return filtering;
+  }
 }

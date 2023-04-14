@@ -1,19 +1,19 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Motor {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
   leiras: string;
 
   @Column()
-  motorkomponensek: string;
+  motorkomponens: string;
 
   @Column()
-  darabszam: number;
+  quantity: number;
 
   @Column()
-  ar: number;
+  price: number;
 }
