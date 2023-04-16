@@ -9,11 +9,11 @@ export class Vezerloegyseg {
   leiras: string;
 
   @Column()
-  vezerloegysegkomponensek: string;
+  vezerloegysegkomponens: string;
 
   @Column()
-  darabszam: number;
+  quantity: number;
 
   @Column()
-  ar: number;
+  price: number;
 }

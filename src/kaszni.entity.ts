@@ -9,11 +9,11 @@ export class Kaszni {
   leiras: string;
 
   @Column()
-  kasznikomponensek: string;
+  kasznikomponens: string;
 
   @Column()
-  darabszam: number;
+  quantity: number;
 
   @Column()
-  ar: number;
+  price: number;
 }

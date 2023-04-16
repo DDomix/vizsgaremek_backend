@@ -30,16 +30,16 @@ SET time_zone = "+00:00";
 CREATE TABLE `kaszni` (
   `id` int(11) NOT NULL,
   `leiras` varchar(255) NOT NULL,
-  `kasznikomponensek` varchar(255) NOT NULL,
-  `darabszam` int(11) NOT NULL,
-  `ar` int(15) NOT NULL
+  `kasznikomponens` varchar(255) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `price` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- A tábla adatainak kiíratása `kaszni`
 --
 
-INSERT INTO `kaszni` (`id`, `leiras`, `kasznikomponensek`, `darabszam`, `ar`) VALUES
+INSERT INTO `kaszni` (`id`, `leiras`, `kasznikomponens`, `quantity`, `price`) VALUES
 (1, 'The main structure of the car, which includes the cockpit, suspension, and power unit assembly', 'Chassis', 10, 2000000000),
 (2, 'High-performance, turbocharged V6 engine with hybrid technology that recovers much of the energy from braking and exhaust gases', 'Power Unit', 12, 1500000000),
 (3, 'The transmission that transfers power from the power unit to the rear wheels', 'Gearbox', 20, 700000),
