@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Ápr 16. 17:01
+-- Létrehozás ideje: 2023. Ápr 16. 17:29
 -- Kiszolgáló verziója: 10.4.18-MariaDB
 -- PHP verzió: 7.3.27
 
@@ -98,18 +98,17 @@ INSERT INTO `pilotak` (`nev`, `kor`, `nemzetiseg`, `csapat`, `szerzettpontok`, `
 ('Ido Cohen', 21, 'Israel', 'Jenzer Motorsport', 2, 'Formula3', 21, 53),
 ('Francesco Pizzi', 18, 'Italy', 'Charouz Racing System', 1, 'Formula3', 22, 54),
 ('David Schumacher', 21, 'Germany', 'Charouz Racing System', 0, 'Formula3', 23, 55),
-('Lirim Zendeli', 23, 'Germany', 'Charouz Racing System', 0, 'Formula3', 23, 56),
-('Ayrton Simmons', 21, 'United Kingdom', 'Charouz Racing System', 0, 'Formula3', 23, 57),
-('Tóth László', 22, 'Hungary', 'Charouz Racing System', 0, 'Formula3', 23, 58),
-('Christian Mansell', 18, 'Australia', 'Charouz Racing System', 0, 'Formula3', 23, 59),
-('Alessandro Famularo', 20, 'Italy', 'Charouz Racing System', 0, 'Formula3', 23, 60),
-('Zdenek Chovanec', 18, 'Portugal', 'Charouz Racing System', 0, 'Formula3', 23, 61),
-('Federico Malvestiti', 22, 'Italy', 'Jenzer Motorsport', 0, 'Formula3', 23, 62),
-('Niko Kari', 23, 'Finland', 'Jenzer Motorsport', 0, 'Formula3', 23, 63),
-('Nazim Azman', 21, 'Malaysia', 'Hitech Grand Prix', 0, 'Formula3', 23, 64),
-('Hunter Yeany', 17, 'USA', 'Campos Racing', 0, 'Formula3', 23, 65),
-('Enzo Trulli', 17, 'Italy', 'Carlin', 0, 'Formula3', 23, 66),
-('Filip Ugran', 20, 'Romania', 'MP Motorsport', 0, 'Formula3', 23, 67);
+('Ayrton Simmons', 21, 'United Kingdom', 'Charouz Racing System', 0, 'Formula3', 23, 56),
+('Tóth László', 22, 'Hungary', 'Charouz Racing System', 0, 'Formula3', 23, 57),
+('Christian Mansell', 18, 'Australia', 'Charouz Racing System', 0, 'Formula3', 23, 58),
+('Alessandro Famularo', 20, 'Italy', 'Charouz Racing System', 0, 'Formula3', 23, 59),
+('Zdenek Chovanec', 18, 'Portugal', 'Charouz Racing System', 0, 'Formula3', 23, 60),
+('Federico Malvestiti', 22, 'Italy', 'Jenzer Motorsport', 0, 'Formula3', 23, 61),
+('Niko Kari', 23, 'Finland', 'Jenzer Motorsport', 0, 'Formula3', 23, 62),
+('Nazim Azman', 21, 'Malaysia', 'Hitech Grand Prix', 0, 'Formula3', 23, 63),
+('Hunter Yeany', 17, 'USA', 'Campos Racing', 0, 'Formula3', 23, 64),
+('Enzo Trulli', 17, 'Italy', 'Carlin', 0, 'Formula3', 23, 65),
+('Filip Ugran', 20, 'Romania', 'MP Motorsport', 0, 'Formula3', 23, 66);
 
 --
 -- Indexek a kiírt táblákhoz
