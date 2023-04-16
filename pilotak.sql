@@ -81,7 +81,7 @@ INSERT INTO `pilotak` (`nev`, `kor`, `nemzetiseg`, `csapat`, `szerzettpontok`, `
 ('Caio Collet', 20, 'Brasil', 'MP Motorsport', 88, 'Formula3', 7, 36),
 ('Franco Colapinto', 19, 'Argentina', 'Van Amersfoort Racing', 76, 'Formula3', 8, 37),
 ('Alekszandr Szmoljar', 21, 'Russian', 'MP Motorsport', 76, 'Formula3', 8, 38),
-('Zak O\'Sullivan', 18, 'United Kingdom', 'Carlin', 54, 'Formula3', 9, 39),
+('Zak O\Sullivan', 18, 'United Kingdom', 'Carlin', 54, 'Formula3', 9, 39),
 ('Jonny Edgar', 19, 'United Kingdom', 'Trident', 46, 'Formula3', 10, 40),
 ('Kush Maini', 22, 'India', 'MP Motorsport', 31, 'Formula3', 11, 41),
 ('Grégoire Saucy', 23, 'Switzerland', 'ART Grand Prix', 30, 'Formula3', 12, 42),

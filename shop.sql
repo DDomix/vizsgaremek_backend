@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2023. Ápr 12. 14:23
--- Kiszolgáló verziója: 10.4.24-MariaDB
--- PHP verzió: 8.1.6
+-- Létrehozás ideje: 2023. Ápr 16. 20:51
+-- Kiszolgáló verziója: 10.4.18-MariaDB
+-- PHP verzió: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -317,11 +317,11 @@ INSERT INTO `shop` (`id`, `type`, `team`, `size`, `color`, `price`, `quantity`) 
 (283, 'Hoodie', 'Haas', 'M', 'Fekete', 34000, 20),
 (284, 'Hoodie', 'Haas', 'L', 'Fekete', 36000, 20),
 (285, 'Hoodie', 'Haas', 'XL', 'Fekete', 38000, 20),
-(286, 'Hoodie', 'Haas', 'XS', 'Fehér', 30000, 20),
-(287, 'Hoodie', 'Haas', 'S', 'Fehér', 32000, 20),
-(288, 'Hoodie', 'Haas', 'M', 'Fehér', 34000, 20),
-(289, 'Hoodie', 'Haas', 'L', 'Fehér', 36000, 20),
-(290, 'Hoodie', 'Haas', 'XL', 'Fehér', 38000, 20);
+(286, 'Hoodie', 'Haas', 'XS', 'Kék', 30000, 20),
+(287, 'Hoodie', 'Haas', 'S', 'Kék', 32000, 20),
+(288, 'Hoodie', 'Haas', 'M', 'Kék', 34000, 20),
+(289, 'Hoodie', 'Haas', 'L', 'Kék', 36000, 20),
+(290, 'Hoodie', 'Haas', 'XL', 'Kék', 38000, 20);
 
 --
 -- Indexek a kiírt táblákhoz
