@@ -26,7 +26,7 @@ export class AppController {
   constructor(
     private readonly appService: AppService,
     private dataSource: DataSource,
-  ) {}
+  ) { }
 
   @Get()
   @Render('index')
@@ -61,15 +61,28 @@ export class AppController {
   @Get('/api/shop/:id')
   async listShop(@Param() userData: Shop) {
     const usersRepo = this.dataSource.getRepository(Shop);
-    return await usersRepo.findOne({where: {
-      id: userData.id,
-    },});
+    return await usersRepo.findOne({
+      where: {
+        id: userData.id,
+      },
+    });
   }
 
   @Post('api/shop')
   async filter(@Body() userData: Shop) {
     const shoprepo = this.dataSource.getRepository(Shop);
-    const filtering = await shoprepo.find({
+    if (userData.team){
+      const filtering = await shoprepo.find({
+        where: {
+          team: Like(`%${userData.team}%`),
+          type: userData.type,
+          size: userData.size,
+          color: userData.color,
+        },
+      });
+      return filtering;
+    }else{
+      return await shoprepo.find({
       where: {
         team: userData.team,
         type: userData.type,
@@ -77,7 +90,8 @@ export class AppController {
         color: userData.color,
       },
     });
-    return filtering;
+    }
+    
   }
 
   @Get('api/shop/chechout')
@@ -107,12 +121,36 @@ export class AppController {
   @Post('api/engine')
   async enginefilter(@Body() engineData: Motor) {
     const engineRepo = this.dataSource.getRepository(Motor);
-    const filtering = await engineRepo.find({
-      where: {
-        motorkomponens: Like(`%${engineData.motorkomponens}%`),
-        price: engineData.price,
-      },
-    });
-    return filtering;
+    if (engineData.motorkomponens) {
+      const filtering = await engineRepo.find({ where: { motorkomponens: Like(`%${engineData.motorkomponens}%`) } });
+      return filtering;
+    } else {
+      const allEngines = await engineRepo.find();
+      return allEngines;
+    }
+  }
+
+  @Post('api/bodywork')
+  async bodyworkfilter(@Body() bodyworkData: Kaszni) {
+    const bodyworkRepo = this.dataSource.getRepository(Kaszni);
+    if (bodyworkData.kasznikomponens) {
+      const filtering = await bodyworkRepo.find({ where: { kasznikomponens: Like(`%${bodyworkData.kasznikomponens}%`) } });
+      return filtering;
+    } else {
+      const allBodywork = await bodyworkRepo.find();
+      return allBodywork;
+    }
+  }
+
+  @Post('api/driveability')
+  async driveabilityfilter(@Body() driveabilityData: Vezerloegyseg) {
+    const bodyworkRepo = this.dataSource.getRepository(Vezerloegyseg);
+    if (driveabilityData.vezerloegysegkomponens) {
+      const filtering = await bodyworkRepo.find({ where: { vezerloegysegkomponens: Like(`%${driveabilityData.vezerloegysegkomponens}%`) } });
+      return filtering;
+    } else {
+      const allDriveability = await bodyworkRepo.find();
+      return allDriveability;
+    }
   }
 }
