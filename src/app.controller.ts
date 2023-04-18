@@ -153,4 +153,27 @@ export class AppController {
       return allDriveability;
     }
   }
+
+  @Post('api/drivers')
+async drivers(@Body() driversData: Pilotak) {
+  const driverrepo = this.dataSource.getRepository(Pilotak);
+  if (driversData.nev || driversData.csapat || driversData.nemzetiseg) {
+    const filtering = await driverrepo.find({
+      where: {
+        nev: Like(`%${driversData.nev || ''}%`),
+        csapat: Like(`%${driversData.csapat || ''}%`),
+        helyezes: driversData.helyezes,
+        kategoria: driversData.kategoria,
+        kor: driversData.kor,
+        nemzetiseg: Like(`%${driversData.nemzetiseg || ''}%`),
+        szerzettpontok: driversData.szerzettpontok,
+      },
+    });
+    return filtering;
+  } else {
+    const alldrivers = await driverrepo.find();
+    return alldrivers;
+  }
+}
+
 }
