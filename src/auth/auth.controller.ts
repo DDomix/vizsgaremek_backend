@@ -53,6 +53,16 @@ export class AuthController {
     if (userData.password !== userData.passwordagain) {
       throw new BadRequestException('Passwords must match');
     }
+    if (userData.username.length < 5) {
+      throw new BadRequestException(
+        'Username must be at least 5 characters long',
+      );
+    }
+    if (userData.password.length < 8) {
+      throw new BadRequestException(
+        'Password must be at least 8 characters long',
+      );
+    }
     const user = new userEntity.User();
     user.email = userData.email;
     user.password = await bcrypt.hash(userData.password, 12);
