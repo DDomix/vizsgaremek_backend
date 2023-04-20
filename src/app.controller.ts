@@ -26,7 +26,7 @@ export class AppController {
   constructor(
     private readonly appService: AppService,
     private dataSource: DataSource,
-  ) { }
+  ) {}
 
   @Get()
   @Render('index')
@@ -71,7 +71,7 @@ export class AppController {
   @Post('api/shop')
   async filter(@Body() userData: Shop) {
     const shoprepo = this.dataSource.getRepository(Shop);
-    if (userData.team){
+    if (userData.team) {
       const filtering = await shoprepo.find({
         where: {
           team: Like(`%${userData.team}%`),
@@ -81,17 +81,16 @@ export class AppController {
         },
       });
       return filtering;
-    }else{
+    } else {
       return await shoprepo.find({
-      where: {
-        team: userData.team,
-        type: userData.type,
-        size: userData.size,
-        color: userData.color,
-      },
-    });
+        where: {
+          team: userData.team,
+          type: userData.type,
+          size: userData.size,
+          color: userData.color,
+        },
+      });
     }
-    
   }
 
   @Get('api/shop/chechout')
@@ -122,7 +121,9 @@ export class AppController {
   async enginefilter(@Body() engineData: Motor) {
     const engineRepo = this.dataSource.getRepository(Motor);
     if (engineData.motorkomponens) {
-      const filtering = await engineRepo.find({ where: { motorkomponens: Like(`%${engineData.motorkomponens}%`) } });
+      const filtering = await engineRepo.find({
+        where: { motorkomponens: Like(`%${engineData.motorkomponens}%`) },
+      });
       return filtering;
     } else {
       const allEngines = await engineRepo.find();
@@ -134,7 +135,9 @@ export class AppController {
   async bodyworkfilter(@Body() bodyworkData: Kaszni) {
     const bodyworkRepo = this.dataSource.getRepository(Kaszni);
     if (bodyworkData.kasznikomponens) {
-      const filtering = await bodyworkRepo.find({ where: { kasznikomponens: Like(`%${bodyworkData.kasznikomponens}%`) } });
+      const filtering = await bodyworkRepo.find({
+        where: { kasznikomponens: Like(`%${bodyworkData.kasznikomponens}%`) },
+      });
       return filtering;
     } else {
       const allBodywork = await bodyworkRepo.find();
@@ -146,7 +149,13 @@ export class AppController {
   async driveabilityfilter(@Body() driveabilityData: Vezerloegyseg) {
     const bodyworkRepo = this.dataSource.getRepository(Vezerloegyseg);
     if (driveabilityData.vezerloegysegkomponens) {
-      const filtering = await bodyworkRepo.find({ where: { vezerloegysegkomponens: Like(`%${driveabilityData.vezerloegysegkomponens}%`) } });
+      const filtering = await bodyworkRepo.find({
+        where: {
+          vezerloegysegkomponens: Like(
+            `%${driveabilityData.vezerloegysegkomponens}%`,
+          ),
+        },
+      });
       return filtering;
     } else {
       const allDriveability = await bodyworkRepo.find();
@@ -155,25 +164,24 @@ export class AppController {
   }
 
   @Post('api/drivers')
-async drivers(@Body() driversData: Pilotak) {
-  const driverrepo = this.dataSource.getRepository(Pilotak);
-  if (driversData.nev || driversData.csapat || driversData.nemzetiseg) {
-    const filtering = await driverrepo.find({
-      where: {
-        nev: Like(`%${driversData.nev || ''}%`),
-        csapat: Like(`%${driversData.csapat || ''}%`),
-        helyezes: driversData.helyezes,
-        kategoria: driversData.kategoria,
-        kor: driversData.kor,
-        nemzetiseg: Like(`%${driversData.nemzetiseg || ''}%`),
-        szerzettpontok: driversData.szerzettpontok,
-      },
-    });
-    return filtering;
-  } else {
-    const alldrivers = await driverrepo.find();
-    return alldrivers;
+  async drivers(@Body() driversData: Pilotak) {
+    const driverrepo = this.dataSource.getRepository(Pilotak);
+    if (driversData.nev || driversData.csapat || driversData.nemzetiseg) {
+      const filtering = await driverrepo.find({
+        where: {
+          nev: Like(`%${driversData.nev || ''}%`),
+          csapat: Like(`%${driversData.csapat || ''}%`),
+          helyezes: driversData.helyezes,
+          kategoria: driversData.kategoria,
+          kor: driversData.kor,
+          nemzetiseg: Like(`%${driversData.nemzetiseg || ''}%`),
+          szerzettpontok: driversData.szerzettpontok,
+        },
+      });
+      return filtering;
+    } else {
+      const alldrivers = await driverrepo.find();
+      return alldrivers;
+    }
   }
-}
-
 }
