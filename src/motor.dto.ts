@@ -7,7 +7,7 @@ export default class motorDto {
 
   @IsNotEmpty()
   @IsString()
-  motorkomponensek: string;
+  motorkomponens: string;
 
   @IsNotEmpty()
   @IsInt()

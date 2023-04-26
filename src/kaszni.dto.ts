@@ -7,7 +7,7 @@ export default class kaszniDto {
 
   @IsNotEmpty()
   @IsString()
-  kasznikomponensek: string;
+  kasznikomponens: string;
 
   @IsNotEmpty()
   @IsInt()

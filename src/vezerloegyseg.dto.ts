@@ -7,7 +7,7 @@ export default class vezerloegysegDto {
 
   @IsNotEmpty()
   @IsString()
-  vezerloegysegkomponensek: string;
+  vezerloegysegkomponens: string;
 
   @IsNotEmpty()
   @IsInt()

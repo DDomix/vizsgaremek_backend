@@ -11,11 +11,17 @@ import {
 } from '@nestjs/common';
 import { DataSource, Like } from 'typeorm';
 import { AppService } from './app.service';
+import checkoutDto from './checkout.dto';
+import driversDto from './drivers.dto';
 import { Pilotak } from './drivers.entity';
+import kaszniDto from './kaszni.dto';
 import { Kaszni } from './kaszni.entity';
+import motorDto from './motor.dto';
 import { Motor } from './motor.entity';
+import ShopDto from './shop.dto';
 import { Shop } from './shop.entity';
 import { User } from './user.entity';
+import vezerloegysegDto from './vezerloegyseg.dto';
 import { Vezerloegyseg } from './vezerloegyseg.entity';
 
 @Controller()
@@ -68,8 +74,24 @@ export class AppController {
     });
   }
 
+  @Post('api/checkout')
+  async checkout(@Body() checkoutBody: checkoutDto[]) {
+    const shoprepo = this.dataSource.getRepository(Shop);
+    for (let co of checkoutBody) {
+      const shopItem = await shoprepo.findOne({ where: { id: co.id } });
+      const newquantity=shopItem.quantity-co.amount;
+      console.log(shopItem.quantity);
+      console.log(co.amount);
+      shopItem.quantity=newquantity;
+      console.log(shopItem);
+      await shoprepo.save(shopItem);
+    }
+    return{message: 'Checkout successful' };
+  }
+
+
   @Post('api/shop')
-  async filter(@Body() userData: Shop) {
+  async filter(@Body() userData: ShopDto) {
     const shoprepo = this.dataSource.getRepository(Shop);
     if (userData.team) {
       const filtering = await shoprepo.find({
@@ -93,22 +115,10 @@ export class AppController {
     }
   }
 
-  @Get('api/shop/chechout')
+  @Get('api/shop/checkout')
   async checkoutlist() {
     const repo = this.dataSource.getRepository(Shop);
     return await repo.find();
-  }
-
-  @Get('/api/shop/checkout/:id')
-  async checkout(@Param() ID: number) {
-    const shopRepo = this.dataSource.getRepository(Shop);
-    const one = await shopRepo.findOne({
-      where: {
-        id: ID,
-      },
-    });
-    one.quantity - 1;
-    return one;
   }
 
   @Delete('/api/users/:id')
@@ -118,7 +128,7 @@ export class AppController {
   }
 
   @Post('api/engine')
-  async enginefilter(@Body() engineData: Motor) {
+  async enginefilter(@Body() engineData: motorDto) {
     const engineRepo = this.dataSource.getRepository(Motor);
     if (engineData.motorkomponens) {
       const filtering = await engineRepo.find({
@@ -132,7 +142,7 @@ export class AppController {
   }
 
   @Post('api/bodywork')
-  async bodyworkfilter(@Body() bodyworkData: Kaszni) {
+  async bodyworkfilter(@Body() bodyworkData: kaszniDto) {
     const bodyworkRepo = this.dataSource.getRepository(Kaszni);
     if (bodyworkData.kasznikomponens) {
       const filtering = await bodyworkRepo.find({
@@ -146,7 +156,7 @@ export class AppController {
   }
 
   @Post('api/driveability')
-  async driveabilityfilter(@Body() driveabilityData: Vezerloegyseg) {
+  async driveabilityfilter(@Body() driveabilityData: vezerloegysegDto) {
     const bodyworkRepo = this.dataSource.getRepository(Vezerloegyseg);
     if (driveabilityData.vezerloegysegkomponens) {
       const filtering = await bodyworkRepo.find({
@@ -164,7 +174,7 @@ export class AppController {
   }
 
   @Post('api/drivers')
-  async drivers(@Body() driversData: Pilotak) {
+  async drivers(@Body() driversData: driversDto) {
     const driverrepo = this.dataSource.getRepository(Pilotak);
     if (driversData.nev || driversData.csapat || driversData.nemzetiseg) {
       const filtering = await driverrepo.find({
